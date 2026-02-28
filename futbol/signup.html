@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Crear cuenta — Club Deportivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Crear cuenta</h2>
+            <p class="small muted">Crea una cuenta nueva (demo local).</p>
+            <form id="signupForm">
+                <input id="name" type="text" placeholder="Nombre completo" required>
+                <input id="email" type="email" placeholder="Correo electrónico" required>
+                <input id="password" type="password" placeholder="Contraseña" required>
+                <div class="actions">
+                    <button class="btn-primary" type="submit">Crear cuenta</button>
+                    <a href="login.html" style="margin-left:8px;color:var(--primary);font-weight:700">Volver a iniciar</a>
+                </div>
+            </form>
+            <p class="small muted" style="margin-top:12px">Los datos se almacenan localmente en este navegador (demo).</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const pass = document.getElementById('password').value;
+            const res = auth.signup(name, email, pass);
+            if(res.ok){
+                window.location.href = 'index.html';
+            } else {
+                alert(res.msg || 'Error al crear cuenta');
+            }
+        });
+    </script>
+</body>
+</html>

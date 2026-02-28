@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Iniciar sesión — Club Deportivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Iniciar sesión</h2>
+            <p class="small muted">Accede con tu cuenta para ver el sitio.</p>
+            <form id="loginForm">
+                <input id="email" type="email" placeholder="Correo electrónico" required>
+                <input id="password" type="password" placeholder="Contraseña" required>
+                <div class="actions">
+                    <button class="btn-primary" type="submit">Entrar</button>
+                    <a href="signup.html" style="margin-left:8px;color:var(--primary);font-weight:700">Crear cuenta</a>
+                </div>
+            </form>
+            <p class="small muted" style="margin-top:12px">Los datos se almacenan localmente en este navegador (demo).</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const pass = document.getElementById('password').value;
+            const res = auth.login(email, pass);
+            if(res.ok){
+                window.location.href = 'index.html';
+            } else {
+                alert(res.msg || 'Error al iniciar sesión');
+            }
+        });
+    </script>
+</body>
+</html>
