@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinePro - Catálogo de Películas</title>
+    <style>
+        :root {
+            --primary: #e50914;
+            --dark-bg: #141414;
+            --card-bg: #1f1f1f;
+            --text: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        header { text-align: center; padding: 20px 0; }
+        h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 20px; }
+
+        /* Controles de búsqueda y filtro */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        input, select, .btn {
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        input { width: 350px; background: #333; color: white; }
+        select { background: #333; color: white; cursor: pointer; }
+        
+        .btn-add { background: var(--primary); color: white; cursor: pointer; font-weight: bold; }
+        .btn-add:hover { background: #ff0a16; }
+
+        /* Grid de Películas */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body { padding: 15px; }
+        .card-body h3 { margin: 0 0 10px 0; font-size: 1.1rem; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            background: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .btn-play {
+            display: block;
+            text-align: center;
+            background: #ffffff;
+            color: black;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .btn-delete {
+            width: 100%;
+            background: transparent;
+            color: #ff4d4d;
+            border: 1px solid #ff4d4d;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Modal para agregar peli (Simple) */
+        #form-container {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #222;
+            padding: 30px;
+            z-index: 100;
+            border-radius: 10px;
+            box-shadow: 0 0 20px black;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NETFLIX <small style="font-size: 0.4em; vertical-align: middle;">CLONE</small></h1>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="buscador" placeholder="¿Qué quieres ver hoy?" onkeyup="filtrar()">
+        <select id="filtroGenero" onchange="filtrar()">
+            <option value="Todos">Todos los géneros</option>
+            <option value="Acción">Acción</option>
+            <option value="Terror">Terror</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Drama">Drama</option>
+        </select>
+        <button class="btn-add" onclick="mostrarForm()">+ Añadir Película</button>
+    </div>
+
+    <div id="form-container">
+        <h3>Añadir Nueva Película</h3>
+        <input type="text" id="newTitle" placeholder="Título"><br><br>
+        <input type="text" id="newImg" placeholder="Link de la imagen (Poster)"><br><br>
+        <input type="text" id="newVideo" placeholder="ID de YouTube"><br><br>
+        <select id="newGenre">
+            <option value="Acción">Acción</option>
+            <option value="Terror">Terror</option>
+            <option value="Comedia">Comedia</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Drama">Drama</option>
+        </select><br><br>
+        <button class="btn-add" onclick="agregarPelicula()">Guardar</button>
+        <button onclick="mostrarForm()" style="background:none; color:white; border:none; cursor:pointer">Cancelar</button>
+    </div>
+
+    <div class="movie-grid" id="grid">
+        </div>
+
+    <script src="localstore.js"></script>
+</body>
+</html>

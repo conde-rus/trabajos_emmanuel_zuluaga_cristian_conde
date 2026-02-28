@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Club Deportivo llorones.fc— Sitio Oficial</title>
+	<meta name="description" content="Club Deportivo Aurora — Historia, plantilla, calendarios y contacto." />
+	<link rel="icon" type="image/x-icon" href="../futbol/logo.png">
+	<style>
+
+		/* User area simple link (no bubble pseudo-elements) */
+		.user-link{display:inline-block;padding:8px 12px;border-radius:10px;background:transparent;color:var(--primary);text-decoration:none;border:2px solid transparent}
+		.user-link:hover{background:var(--accent);color:white}
+
+		:root{--primary:#0b3d91;--accent:#f0b400;--bg:#f7f9fc;--muted:#6b7280}
+		*{box-sizing:border-box}
+		body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:var(--bg);color:#0b1726}
+		.container{max-width:1100px;margin:0 auto;padding:28px}
+		header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+		.brand{display:flex;align-items:center;gap:14px}
+		.logo{width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--primary),#0e4ea6);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 6px 18px rgba(11,61,145,0.12)}
+		.site-logo{width:56px;height:56px;border-radius:10px;object-fit:contain;display:block}
+		.cal-icon{width:28px;height:28px;margin-right:8px;vertical-align:middle;border-radius:6px;object-fit:contain;box-shadow:0 6px 14px rgba(11,61,145,0.08);background:white;padding:4px}
+		.club-title{font-weight:900;font-size:18px;color:var(--primary);line-height:1}
+		.club-sub{font-size:13px;color:var(--muted);margin-top:4px}
+		.header-right{display:flex;align-items:center;gap:12px}
+		nav.nav{display:flex;gap:10px;align-items:center}
+		nav.nav .btn{letter-spacing:0.6px;padding:8px 14px;border-radius:12px;background:transparent;color:var(--primary);outline:2px solid transparent;box-shadow:none}
+		nav.nav .btn.active{background:var(--accent);color:white;box-shadow:0 8px 20px rgba(240,180,0,0.12);outline:0;position:relative}
+		nav.nav .btn.active::before{content:"";position:absolute;left:-8px;top:50%;transform:translateY(-50%) rotate(20deg);width:18px;height:18px;background:var(--accent);border-radius:4px}
+		/* ensure nav buttons don't show the bubble pseudo-elements */
+		nav.nav .btn::before, nav.nav .btn::after{display:none !important}
+		nav.nav .btn:hover{transform:translateY(-2px)}
+		.hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:22px}
+		.hero-card{background:white;padding:28px;border-radius:14px;box-shadow:0 8px 20px rgba(11,61,145,0.08)}
+		h1{margin:0;color:var(--primary);font-size:34px}
+		p.lead{color:var(--muted);margin-top:8px}
+		.cta{margin-top:18px}
+		/* From Uiverse.io by zjssun */
+		.btn, .button, button {
+			position: relative;
+			padding: 10px 22px;
+			border-radius: 6px;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			background-color: #7d2ae8;
+			transition: all 0.2s ease;
+		}
+
+		.btn:active, .button:active, button:active {
+			transform: scale(0.96);
+		}
+
+		.btn:before, .btn:after, .button:before, .button:after, button:before, button:after {
+			position: absolute;
+			content: "";
+			width: 150%;
+			left: 50%;
+			height: 100%;
+			transform: translateX(-50%);
+			z-index: -1000;
+			background-repeat: no-repeat;
+		}
+
+		.btn:hover:before, .button:hover:before, button:hover:before {
+			top: -70%;
+			background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+			background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+				10% 10%, 18% 18%;
+			background-position: 50% 120%;
+			animation: greentopBubbles 0.6s ease;
+		}
+
+		@keyframes greentopBubbles {
+			0% {
+				background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+					40% 90%, 55% 90%, 70% 90%;
+			}
+
+			50% {
+				background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+					50% 50%, 65% 20%, 90% 30%;
+			}
+
+			100% {
+				background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+					50% 40%, 65% 10%, 90% 20%;
+				background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+			}
+		}
+
+		.btn:hover::after, .button:hover::after, button:hover::after {
+			bottom: -70%;
+			background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+				radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+			background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+			background-position: 50% 0%;
+			animation: greenbottomBubbles 0.6s ease;
+		}
+
+		@keyframes greenbottomBubbles {
+			0% {
+				background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+					70% -10%, 70% 0%;
+			}
+
+			50% {
+				background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+					105% 0%;
+			}
+
+			100% {
+				background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+					110% 10%;
+				background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+			}
+		}
+		.badge{display:inline-block;background:var(--primary);color:white;padding:6px 10px;border-radius:999px;font-size:13px;margin-left:8px}
+		/* Roster */
+		.section{margin-top:28px}
+		table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden}
+		th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #eef2f7}
+		th{background:#fbfdff;color:var(--muted);font-size:13px}
+		.pos{font-weight:700;color:var(--primary)}
+		footer{margin-top:28px;padding:18px 0;color:var(--muted);font-size:14px}
+		@media (max-width:880px){.hero{grid-template-columns:1fr}.logo{width:52px;height:52px}}
+		/* From Uiverse.io by yashasvi9199 */
+		.form {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding-left: 2em;
+			padding-right: 2em;
+			padding-bottom: 0.4em;
+			background-color: #171717;
+			border-radius: 25px;
+			transition: 0.4s ease-in-out;
+		}
+			
+
+		.field {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5em;
+			border-radius: 25px;
+			padding: 0.6em;
+			border: none;
+			outline: none;
+			color: white;
+			background-color: #171717;
+			box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+		}
+
+		.input-icon {
+			height: 1.3em;
+			width: 1.3em;
+			fill: white;
+		}
+
+		.input-field {
+			background: none;
+			border: none;
+			outline: none;
+			width: 100%;
+			color: #d3d3d3;
+		}
+
+		.form .btn {
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
+			margin-top: 2.5em;
+		}
+
+		.button1 {
+			padding: 0.5em;
+			padding-left: 1.1em;
+			padding-right: 1.1em;
+			border-radius: 5px;
+			margin-right: 0.5em;
+			border: none;
+			outline: none;
+			transition: 0.4s ease-in-out;
+			background-color: #252525;
+			color: white;
+		}
+		
+
+		.button1:hover {
+			background-color: black;
+			color: white;
+		}
+
+		.button2 {
+			padding: 0.5em;
+			padding-left: 2.3em;
+			padding-right: 2.3em;
+			border-radius: 5px;
+			border: none;
+			outline: none;
+			transition: 0.4s ease-in-out;
+			background-color: #252525;
+			color: white;
+		}
+
+		.button2:hover {
+			background-color: black;
+			color: white;
+		}
+
+		.button3 {
+			margin-bottom: 3em;
+			padding: 0.5em;
+			border-radius: 5px;
+			border: none;
+			outline: none;
+			transition: 0.4s ease-in-out;
+			background-color: #252525;
+			color: white;
+		}
+
+		.button3:hover {
+			background-color: red;
+			color: white;
+		}
+
+		/* Modal overlay */
+		.modal-overlay {position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);visibility:hidden;opacity:0;transition:opacity .18s}
+		.modal-overlay.open{visibility:visible;opacity:1}
+		.auth-card{width:360px;border-radius:18px;overflow:hidden}
+		.auth-inner{background:#0b0b0b;padding:18px}
+		.auth-title{color:#fff;text-align:center;margin-bottom:8px}
+		.small-muted{color:#cfcfcf;font-size:13px;text-align:center;margin-top:6px}
+	</style>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="brand">
+				<div class="logo" aria-hidden>
+					<img src="../futbol/Gemini_Generated_Image_xqhucuxqhucuxqhu.png" alt="Escudo llorones" class="site-logo" />
+				</div>
+				<div>
+					<div style="font-weight:800;color:var(--primary)">Club Deportivo llorones.fc</div>
+					<div style="font-size:13px;color:var(--muted)">Ciudad medellin— Fundado 2005</div>
+				</div>
+			</div>
+			<nav class="nav">
+				<a class="btn" href="#about">Nosotros</a>
+				<a class="btn" href="#roster">Plantilla</a>
+				<a class="btn" href="#info-section">Calendario</a>
+				<a class="btn" href="#card contact-card">Contacto</a>
+				
+			</nav>
+			<div style="margin-left:12px" id="userArea"></div>
+		</header>
+
+		<section class="hero">
+			<div class="hero-card">
+				<div style="display:flex;align-items:center;justify-content:space-between">
+					<div>
+						<h1>Bienvenidos a Club Deportivo los llorones.fc <span class="badge">Profesional</span></h1>
+						<p class="lead">Somos un club comprometido con la formación, la competición y la comunidad. Con una filosofía de juego ofensivo y escuela de jóvenes.</p>
+						<div class="cta">
+							<button id="openRegister" class="btn" type="button">Únete al club</button>
+							<a style="margin-left:12px;color:var(--primary);text-decoration:none;font-weight:700" href="#roster">Ver plantilla →</a>
+						</div>
+					</div>
+					<div style="text-align:right;color:var(--muted)">
+						<div style="font-weight:700;font-size:22px;color:var(--primary)">llorones.fc</div>
+						<div style="margin-top:8px">Colores: <strong style="color:var(--primary)">Azul</strong> y <strong style="color:var(--accent)">Dorado</strong></div>
+					</div>
+				</div>
+			</div>
+
+			<aside>
+				<div style="background:white;padding:18px;border-radius:12px;box-shadow:0 8px 18px rgba(123, 153, 24, 0.06)">
+					<h3 style="margin:0;color:var(--primary)">Próximo partido</h3>
+					<p style="margin-top:8px;color:var(--muted)">llorones.fc vs. Tigres de Norte</p>
+					<p style="margin:6px 0 0;color:var(--muted)">Sábado 28 Feb, 16:00 — Estadio anatacio</p>
+				</div>
+			</aside>
+		</section>
+
+		<section id="about" class="section">
+			<h2 style="margin-top:0;color:var(--primary)">Nuestra Misión</h2>
+			<p style="color:var(--muted)">fomarte para los partido y sacarte tu mejor version en el futbol, y buscarte tu posicion ideal, y mejorar con cada proceso y entrenamiento en la cancha y ganar mucho titulos en equipo y pasarlo "bien"</p>
+		</section>
+
+		<section id="roster" class="section">
+			<h2 style="color:var(--primary)">Plantilla</h2>
+			<table>
+				<thead>
+					<tr><th> Nº </th><th>Nombre</th><th>Posición</th><th>Edad</th><th>Procedencia</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>1</td><td>c. conde </td><td class="pos">Portero</td><td>17</td><td>ciudad medellin</td></tr>
+					<tr><td>2</td><td>s. arango</td><td class="pos">Lateral Derecho</td><td>18</td><td>ciudad armenia</td></tr>
+					<tr><td>3</td><td>j. waldo</td><td class="pos">Central</td><td>19</td><td>Ciudad el choco</td></tr>
+					<tr><td>4</td><td>d. zapata </td><td class="pos">Central</td><td>21</td><td>ciudad medellin</td></tr>
+					<tr><td>5</td><td>l. rodriguez</td><td class="pos">Lateral Izquierdo</td><td>24</td><td>ciudad medellin</td></tr>
+					<tr><td>6</td><td>j. pineda</td><td class="pos">Mediocentro</td><td>19</td><td>Ciudad barranquilla</td></tr>
+					<tr><td>7</td><td>M. Vásquez</td><td class="pos">Extremo</td><td>25</td><td>ciudad medellin</td></tr>
+					<tr><td>8</td><td>S. morales</td><td class="pos">Interior</td><td>20</td><td>Ciudad baranquilla</td></tr>
+					<tr><td>9</td><td>x. echeverri</td><td class="pos">Delantero</td><td>29</td><td>japon</td></tr>
+					<tr><td>10</td><td>J. Castro</td><td class="pos">Mediapunta</td><td>21</td><td>Academia Aurora</td></tr>
+					<tr><td>11</td><td>y. ramirez</td><td class="pos">Delantero</td><td>14</td><td>Ciudad medellin</td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section id="info-section" class="info-section">
+		  <div class="card calendar-card" aria-labelledby="cal-title">
+			<h2 id="cal-title"><img src="../futbol/logo.png" alt="" class="cal-icon"/>Calendario (próximos)</h2>
+		    <ul class="matches">
+		      <li class="match">
+		        <time class="date">28 Feb</time>
+		        <div class="match-info">
+		          <div class="teams"><strong>llorones.fc</strong> vs <span>Tigres de Norte</span></div>
+		          <div class="venue">Estadio Anatacio</div>
+		        </div>
+		      </li>
+		      <li class="match">
+		        <time class="date">07 Mar</time>
+		        <div class="match-info">
+		          <div class="teams"><strong>llorones.fc</strong> vs <span>Leones de la Costa</span></div>
+		          <div class="venue">Estadio Anatacio</div>
+		        </div>
+		      </li>
+		      <li class="match">
+		        <time class="date">14 Mar</time>
+		        <div class="match-info">
+		          <div class="teams"><strong>llorones.fc</strong> vs <span>Montañas FC</span></div>
+		          <div class="venue">Estadio Anatacio</div>
+		        </div>
+		      </li>
+		    </ul>
+			<button class="more-link" id="openFullCalendar">Ver calendario completo →</button>
+		  </div>
+
+		  <div id="card contact-card" aria-labelledby="contact-title">
+		    <h2 id="contact-title">Contacto</h2>
+		    <p class="lead">Buscamos jóvenes con talento. Escríbenos:</p>
+		    <div class="contact-row">
+		      <a class="btn btn-email" href="mailto:condecristian126@gmail.com" aria-label="Enviar email">condecristian126@gmail.com</a>
+		      <a class="btn btn-whatsapp" href="https://wa.me/573145506022" target="_blank" rel="noopener">WhatsApp (314 550 6022)</a>
+		    </div>
+		    <div class="contact-qr">
+		      <a href="https://instagram.com/CRIXX_CND" target="_blank" rel="noopener" aria-label="Instagram CRIXX_CND">
+		        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://instagram.com/CRIXX_CND" alt="QR Instagram CRIXX_CND" />3
+		      </a>
+		      <a class="ig-link" href="https://instagram.com/CRIXX_CND" target="_blank" rel="noopener">@CRIXX_CND</a>
+		    </div>
+		    <div style="margin-top:12px">
+		      <button id="openFeedback" class="btn" type="button">Quejas / Comentarios</button>
+		    </div>
+		    <p class="small">© 2026 Club Deportivo llorones.fc — Todos los derechos reservados</p>
+		  </div>
+		</section>
+
+		<footer>
+			<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+				<div>© 2026 Club Deportivo llorones.fc— Todos los derechos reservados</div>
+				<div style="color:var(--muted)">Diseño profesional • Plantilla inicial incluida</div>
+			</div>
+		</footer>
+	</div>
+	<script src="auth.js"></script>
+	<!-- EmailJS SDK (CDN) -->
+	<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+	<!-- Registro modal -->
+	<div class="modal-overlay" id="registerModal">
+	  <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+		  <div class="auth-inner">
+			  <div style="display:flex;justify-content:space-between;align-items:center">
+					<h3 id="regTitle" class="auth-title">Registro - Únete al club</h3>
+					<button id="closeRegister" style="background:transparent;border:0;color:#fff;font-size:18px">✕</button>
+			  </div>
+			  <!-- From Uiverse.io by doniaskima (adapted) -->
+			  <div class="p-6 mb-0 text-center bg-white border-b-0 rounded-t-2xl">
+			  </div>
+			  <div class="flex-auto p-6" style="background:#fff;color:#111;border-radius:8px">
+				<form id="registerForm">
+				  <div class="mb-4"><input id="fullName" placeholder="Nombre completo" required class="input-field" type="text"></div>
+				  <div class="mb-4"><input id="regEmail" placeholder="Correo" required class="input-field" type="email"></div>
+				  <div class="mb-4"><input id="regPassword" placeholder="Contraseña" required class="input-field" type="password"></div>
+				  <div class="mb-4"><input id="dadPhone" placeholder="Número del papá" class="input-field" type="text"></div>
+				  <div class="mb-4"><input id="momPhone" placeholder="Número de la mamá" class="input-field" type="text"></div>
+				  <div class="mb-4"><input id="personalPhone" placeholder="Número personal" class="input-field" type="text"></div>
+				  <div class="mb-4"><input id="parentsEmail" placeholder="Correo de los padres" class="input-field" type="email"></div>
+				  <div class="mb-4"><input id="height" placeholder="Altura (cm)" class="input-field" type="number" step="0.1"></div>
+				  <div class="mb-4"><input id="weight" placeholder="Peso (kg)" class="input-field" type="number" step="0.1"></div>
+				  <div class="mb-4"><input id="position" placeholder="¿Qué posición juega?" class="input-field" type="text"></div>
+				  <div class="mb-4"><input id="age" placeholder="Edad (14-25)" required class="input-field" type="number" min="14" max="25"></div>
+				  <div class="mb-4"><input id="yearsPlaying" placeholder="¿Cuánto tiempo llevas jugando fútbol? (años)" class="input-field" type="number" min="0"></div>
+				  <div class="mb-4">
+				    <label style="font-weight:700">¿Acepta disciplina, puntualidad y correcciones en el club?</label>
+				    <div style="margin-top:6px">
+				      <label><input type="radio" name="discipline" value="yes" checked> Sí</label>
+				      <label style="margin-left:12px"><input type="radio" name="discipline" value="no"> No</label>
+				    </div>
+				  </div>
+				  <div class="text-center">
+				    <button id="submitRegister" class="btn" type="submit">Crear cuenta</button>
+				  </div>
+				  <p id="regMessage" class="small" style="margin-top:8px;color:#b00"></p>
+				</form>
+			  </div>
+		  </div>
+	  </div>
+	</div>
+
+	<!-- Welcome overlay -->
+	<div id="welcomeOverlay" class="welcome-overlay" aria-hidden="true">
+	  <div class="welcome-card" id="welcomeCard">
+		  <h2>Bienvenido, <span id="welcomeName"></span>!</h2>
+		  <p>Posición: <strong id="welcomePosition"></strong></p>
+		  <p>Gracias por unirte al club — ¡nos vemos en la cancha!</p>
+	  </div>
+	</div>
+
+	<!-- Feedback modal -->
+	<div class="modal-overlay" id="feedbackModal">
+	  <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="fbTitle">
+		  <div class="auth-inner">
+			  <div style="display:flex;justify-content:space-between;align-items:center">
+					<h3 id="fbTitle" class="auth-title">Quejas / Comentarios</h3>
+					<button id="closeFeedback" style="background:transparent;border:0;color:#111;font-size:18px">✕</button>
+			  </div>
+			  <div class="flex-auto p-6" style="background:#fff;color:#111;border-radius:8px">
+				<form id="feedbackForm">
+				  <div class="mb-4"><input id="fbName" placeholder="Tu nombre" class="input-field" type="text"></div>
+				  <div class="mb-4"><input id="fbEmail" placeholder="Tu correo (opcional)" class="input-field" type="email"></div>
+				  <div class="mb-4"><textarea id="fbComment" placeholder="Escribe tu queja o comentario" class="input-field" rows="6" style="resize:vertical"></textarea></div>
+				  <div class="text-center">
+				    <button id="submitFeedback" class="btn" type="submit">Enviar comentario</button>
+				  </div>
+				  <p id="fbMessage" class="small" style="margin-top:8px;color:#060"></p>
+				</form>
+			  </div>
+		  </div>
+	  </div>
+	</div>
+
+	<!-- Full calendar modal -->
+	<div class="modal-overlay" id="fullCalendarModal">
+	  <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="fullCalTitle">
+		  <div class="auth-inner">
+			  <div style="display:flex;justify-content:space-between;align-items:center">
+					<h3 id="fullCalTitle" class="auth-title">Calendario Completo</h3>
+					<button id="closeFullCal" style="background:transparent;border:0;color:#111;font-size:18px">✕</button>
+			  </div>
+					<div class="flex-auto p-6" style="background:#fff;color:#111;border-radius:8px">
+							<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
+								<label style="font-weight:700">Filtrar por mes:</label>
+								<select id="calMonthFilter">
+									<option value="all">Todos</option>
+								</select>
+								<label style="font-weight:700;margin-left:8px">Ordenar:</label>
+								<select id="calSort">
+									<option value="asc">Fecha ↑</option>
+									<option value="desc">Fecha ↓</option>
+								</select>
+								<label style="font-weight:700;margin-left:8px">Buscar rival:</label>
+								<input id="calSearch" placeholder="Escribe nombre del rival" class="input-field" style="width:220px" />
+							</div>
+							<ul class="full-calendar-list" id="fullCalendarList"></ul>
+					</div>
+		  </div>
+	  </div>
+	</div>
+	<script>
+	// Populate header user area but DON'T redirect — allow guests to use registration and feedback
+	document.addEventListener('DOMContentLoaded', ()=>{
+		const userArea = document.getElementById('userArea');
+		if(auth && auth.isLoggedIn && auth.isLoggedIn()){
+			const name = auth.getLoggedName() || 'Usuario';
+			userArea.innerHTML = `<span style="font-weight:700;color:var(--primary);margin-right:8px">${name}</span><a class="user-link" id="logoutBtn" href="#">Salir</a>`;
+			const lb = document.getElementById('logoutBtn');
+			if(lb) lb.addEventListener('click',(e)=>{ e.preventDefault(); auth.logout(); window.location.href='login.html' });
+		}else{
+			userArea.innerHTML = `<a class="user-link" href="login.html">Iniciar sesión</a>`;
+		}
+	});
+
+	// Main IIFE: registration + feedback logic
+	(function(){
+		// Registration modal
+		const openBtn = document.getElementById('openRegister');
+		const modal = document.getElementById('registerModal');
+		const closeBtn = document.getElementById('closeRegister');
+		const form = document.getElementById('registerForm');
+		const msg = document.getElementById('regMessage');
+
+		function openReg(){ modal && modal.classList.add('open'); }
+		function closeReg(){ modal && modal.classList.remove('open'); if(msg) msg.textContent = ''; form && form.reset(); }
+
+		openBtn && openBtn.addEventListener('click', openReg);
+		closeBtn && closeBtn.addEventListener('click', closeReg);
+		modal && modal.addEventListener('click',(e)=>{ if(e.target === modal) closeReg(); });
+
+		form && form.addEventListener('submit',(e)=>{
+			e.preventDefault();
+			msg.textContent = '';
+			const profile = {
+				name: document.getElementById('fullName').value.trim(),
+				email: document.getElementById('regEmail').value.trim(),
+				password: document.getElementById('regPassword').value,
+				dadPhone: document.getElementById('dadPhone').value.trim(),
+				momPhone: document.getElementById('momPhone').value.trim(),
+				personalPhone: document.getElementById('personalPhone').value.trim(),
+				parentsEmail: document.getElementById('parentsEmail').value.trim(),
+				height: document.getElementById('height').value,
+				weight: document.getElementById('weight').value,
+				position: document.getElementById('position').value.trim(),
+				age: document.getElementById('age').value,
+				yearsPlaying: document.getElementById('yearsPlaying').value,
+				discipline: Array.from(document.getElementsByName('discipline')).find(r=>r.checked).value
+			};
+
+			const ageNum = Number(profile.age);
+			if(Number.isNaN(ageNum) || ageNum < 14 || ageNum > 25){ msg.textContent = 'Edad debe ser entre 14 y 25 años'; return; }
+			if(profile.discipline === 'no'){ msg.textContent = 'ents pa que quiere estudiar? mejor dedicarte a otro deporte'; return; }
+
+			const res = auth.signupProfile(profile);
+			if(!res.ok){ msg.textContent = res.msg || 'Error al crear la cuenta'; return; }
+
+			// success — close modal, update header and show welcome overlay
+			closeReg();
+			const userArea = document.getElementById('userArea'); if(userArea){ userArea.innerHTML = `<span style="font-weight:700;color:var(--primary);margin-right:8px">${profile.name}</span><a class="user-link" id="logoutBtn" href="#">Salir</a>`; const lb2 = document.getElementById('logoutBtn'); if(lb2) lb2.addEventListener('click',(ev)=>{ ev.preventDefault(); auth.logout(); window.location.href='login.html' }); }
+
+			const overlay = document.getElementById('welcomeOverlay'); const nameEl = document.getElementById('welcomeName'); const posEl = document.getElementById('welcomePosition'); if(overlay && nameEl && posEl){ nameEl.textContent = profile.name; posEl.textContent = profile.position || 'Sin especificar'; overlay.classList.add('open'); const card = document.getElementById('welcomeCard'); if(card) card.classList.add('appear'); setTimeout(()=>{ overlay.classList.remove('open'); if(card) card.classList.remove('appear'); },4000); }
+		});
+
+		// Feedback modal + EmailJS + TTS
+		const openFb = document.getElementById('openFeedback');
+		const fbModal = document.getElementById('feedbackModal');
+		const closeFb = document.getElementById('closeFeedback');
+		const fbForm = document.getElementById('feedbackForm');
+		const fbMsg = document.getElementById('fbMessage');
+
+		const EMAILJS_USER_ID = 'REPLACE_WITH_YOUR_EMAILJS_USERID';
+		const EMAILJS_SERVICE_ID = 'REPLACE_WITH_YOUR_SERVICE_ID';
+		const EMAILJS_TEMPLATE_ID = 'REPLACE_WITH_YOUR_TEMPLATE_ID';
+		if(window.emailjs && EMAILJS_USER_ID && EMAILJS_USER_ID.indexOf('REPLACE')===-1){ try{ emailjs.init(EMAILJS_USER_ID); }catch(e){} }
+
+		function openFeedback(){ if(fbModal) fbModal.classList.add('open'); try{ if(window.speechSynthesis){ window.speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance('Por favor escribe tu queja o comentario en el recuadro. Cuando termines, pulsa enviar.'); u.lang='es-ES'; u.rate=1; window.speechSynthesis.speak(u); } }catch(e){} }
+		function closeFeedback(){ if(fbModal) fbModal.classList.remove('open'); if(fbMsg) fbMsg.textContent=''; if(fbForm) fbForm.reset(); }
+
+		openFb && openFb.addEventListener('click', openFeedback);
+		closeFb && closeFb.addEventListener('click', closeFeedback);
+		fbModal && fbModal.addEventListener('click',(e)=>{ if(e.target===fbModal) closeFeedback(); });
+
+		fbForm && fbForm.addEventListener('submit',(e)=>{
+			e.preventDefault(); fbMsg.textContent=''; const name = document.getElementById('fbName').value.trim() || 'Anónimo'; const email = document.getElementById('fbEmail').value.trim(); const comment = document.getElementById('fbComment').value.trim(); if(!comment){ fbMsg.style.color='#b00'; fbMsg.textContent='Escribe un comentario antes de enviar.'; return; }
+			try{ const key='llorones.fc_feedbacks'; const list = JSON.parse(localStorage.getItem(key)||'[]'); list.push({name,email,comment,date:(new Date()).toISOString()}); localStorage.setItem(key,JSON.stringify(list)); }catch(err){}
+			const to='condecristian126@gmail.com'; const subject=`Queja/Comentario de ${name}`; const body=`Nombre: ${name}\n${email?('Correo remitente: '+email+'\n'):''}\nComentario:\n${comment}\n`;
+			const canUseEmailJS = window.emailjs && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_SERVICE_ID.indexOf('REPLACE')===-1 && EMAILJS_TEMPLATE_ID.indexOf('REPLACE')===-1;
+			if(canUseEmailJS){ const templateParams={ to_email: to, from_name: name, from_email: email||'', message: comment, subject }; emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).then(function(response){ fbMsg.style.color='#060'; fbMsg.textContent='Comentario enviado. Gracias.'; setTimeout(()=>{ closeFeedback(); },1800); }, function(err){ const mailto=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; window.location.href=mailto; fbMsg.style.color='#060'; fbMsg.textContent='No se pudo enviar directamente; abriendo cliente de correo.'; setTimeout(()=>{ closeFeedback(); },1800); }); }else{ const mailto=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; window.location.href=mailto; fbMsg.style.color='#060'; fbMsg.textContent='Se abrió tu cliente de correo para enviar el comentario.'; setTimeout(()=>{ closeFeedback(); },2200); }
+		});
+
+			// --- Calendar data and interactive rendering ---
+			const EVENTS = [
+			  {id:1,date:'2026-02-28T16:00',label:'Tigres de Norte',venue:'Estadio Anatacio',home:true},
+			  {id:2,date:'2026-03-07T16:00',label:'Leones de la Costa',venue:'Estadio Anatacio',home:true},
+			  {id:3,date:'2026-03-14T16:00',label:'Montañas FC',venue:'Estadio Anatacio',home:true},
+			  {id:4,date:'2026-03-21T16:00',label:'Deportivo Sol',venue:'Estadio Central',home:false},
+			  {id:5,date:'2026-03-28T16:00',label:'Águilas Verdes',venue:'Estadio Norte',home:false},
+			  {id:6,date:'2026-04-04T16:00',label:'Rayo Azul',venue:'Estadio Aurora',home:true},
+			  {id:7,date:'2026-04-11T16:00',label:'Unión Valle',venue:'Estadio Anatacio',home:false},
+			  {id:8,date:'2026-04-18T16:00',label:'Boca Chica',venue:'Estadio Nuevo',home:false},
+			  {id:9,date:'2026-04-25T16:00',label:'Atlético Sierra',venue:'Estadio Anatacio',home:true},
+			  {id:10,date:'2026-05-02T16:00',label:'Juventud FC',venue:'Estadio Central',home:true}
+			];
+
+			const monthSelect = document.getElementById('calMonthFilter');
+			const sortSelect = document.getElementById('calSort');
+			const searchInput = document.getElementById('calSearch');
+			const listEl = document.getElementById('fullCalendarList');
+
+			// populate months
+			(function populateMonths(){
+			  const months = new Set(EVENTS.map(e=> new Date(e.date).toLocaleString('es-ES',{month:'long', year:'numeric'})));
+			  months.forEach(m=>{ const opt = document.createElement('option'); opt.value = m; opt.textContent = m; monthSelect.appendChild(opt); });
+			})();
+
+			function renderCalendar(){
+			  const q = searchInput.value.trim().toLowerCase();
+			  const monthFilter = monthSelect.value;
+			  let items = EVENTS.slice();
+			  // filter month
+			  if(monthFilter && monthFilter!=='all'){
+			    items = items.filter(e=> new Date(e.date).toLocaleString('es-ES',{month:'long', year:'numeric'}) === monthFilter);
+			  }
+			  // search
+			  if(q){ items = items.filter(e=> e.label.toLowerCase().includes(q)); }
+			  // sort
+			  items.sort((a,b)=> sortSelect.value==='asc' ? new Date(a.date)-new Date(b.date) : new Date(b.date)-new Date(a.date));
+			  listEl.innerHTML = '';
+			  items.forEach(ev=>{
+			    const li = document.createElement('li');
+			    li.dataset.id = ev.id;
+			    li.innerHTML = `<time class="date">${new Date(ev.date).toLocaleDateString('es-ES',{day:'2-digit', month:'short'})}</time> <div><strong>llorones.fc</strong> vs ${ev.label}<div class="venue">${ev.venue}</div></div>`;
+			    li.addEventListener('click', ()=> openEventMini(ev));
+			    listEl.appendChild(li);
+			  });
+			}
+
+			monthSelect.addEventListener('change', renderCalendar);
+			sortSelect.addEventListener('change', renderCalendar);
+			searchInput.addEventListener('input', renderCalendar);
+			renderCalendar();
+
+			// mini card
+			let miniEl = null;
+			function openEventMini(ev){
+			  if(miniEl) miniEl.remove();
+			  miniEl = document.createElement('div'); miniEl.className='event-mini';
+			  miniEl.innerHTML = `<div><strong>llorones.fc vs ${ev.label}</strong></div><div>${new Date(ev.date).toLocaleString('es-ES',{weekday:'short', day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit'})}</div><div class="event-actions"><button class="btn" id="addIcs">Agregar (.ics)</button><button class="btn" id="openGCal">Abrir Google Calendar</button><button class="btn" id="closeMini">Cerrar</button></div>`;
+			  document.body.appendChild(miniEl);
+			  document.getElementById('closeMini').addEventListener('click', ()=>{ if(miniEl) miniEl.remove(); miniEl=null; });
+			  document.getElementById('addIcs').addEventListener('click', ()=>{ downloadICS(ev); });
+			  document.getElementById('openGCal').addEventListener('click', ()=>{ openGoogleCal(ev); });
+			}
+
+			function downloadICS(ev){
+			  const start = new Date(ev.date);
+			  const end = new Date(start.getTime() + 90*60000); // 90 minutes
+			  function fmt(d){ return d.toISOString().replace(/-|:|\.\d+/g,''); }
+			  const ics = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//llorones.fc//ES\nBEGIN:VEVENT\nUID:${Date.now()}@llorones.fc\nDTSTAMP:${fmt(new Date())}\nDTSTART:${fmt(start)}\nDTEND:${fmt(end)}\nSUMMARY:llorones.fc vs ${ev.label}\nLOCATION:${ev.venue}\nEND:VEVENT\nEND:VCALENDAR`;
+			  const blob = new Blob([ics],{type:'text/calendar'});
+			  const url = URL.createObjectURL(blob);
+			  const a = document.createElement('a'); a.href=url; a.download = `lloronesfc_vs_${ev.label.replace(/\s+/g,'_')}.ics`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+			}
+
+			function openGoogleCal(ev){
+			  const start = new Date(ev.date);
+			  const end = new Date(start.getTime() + 90*60000);
+			  const fmt = d=> d.toISOString().replace(/-|:|\.\d+/g,'');
+			  const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('llorones.fc vs '+ev.label)}&dates=${fmt(start)}/${fmt(end)}&details=${encodeURIComponent('Partido en '+ev.venue)}&location=${encodeURIComponent(ev.venue)}`;
+			  window.open(url,'_blank');
+			}
+
+		// Full calendar modal handlers
+		const openFullBtn = document.getElementById('openFullCalendar');
+		const fullCalModal = document.getElementById('fullCalendarModal');
+		const closeFullCal = document.getElementById('closeFullCal');
+		openFullBtn && openFullBtn.addEventListener('click', ()=>{ fullCalModal && fullCalModal.classList.add('open'); });
+		closeFullCal && closeFullCal.addEventListener('click', ()=>{ fullCalModal && fullCalModal.classList.remove('open'); });
+		fullCalModal && fullCalModal.addEventListener('click',(e)=>{ if(e.target===fullCalModal) fullCalModal.classList.remove('open'); });
+
+	})();
+	</script>
+</body>
+</html>
