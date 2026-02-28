@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>consumo api clima</title>
+    <link rel="stylesheet" href="./css/styles.css ">
+</head>
+<body>
+    <div class="card">
+  <div class="search-bar">
+    <input type="text" placeholder="Ingrese la ciudad..." spellcheck="false">
+    <button>
+      <img src="./assets/images/icons/busqueda.png" alt="busqueda">
+    </button>
+  </div>
+
+  <div class="error">
+    <p>Nombre de ciudad inválido</p>
+  </div>
+
+  <div class="weather">
+    <img src="./assets/images/icons/nube.png" alt="" class="weather-icon">
+    <h1 class="temp">23 &deg;C</h1>
+    <h2 class="city">Lima</h2>
+
+    <div class="details">
+        <div class="col">
+            <img src="images/humidity.png" alt="">
+            <div>
+                <p class="humidity">50%</p>
+                <p>Humedad</p>
+            </div>
+        </div>
+      <div class="col">
+        <img src="images/wind.png" alt="">
+        <div>
+            <p class="wind">120km/h</p>
+            <p>velocidad del viento</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="./js/main.js"></script>
+</body>
+</html>
